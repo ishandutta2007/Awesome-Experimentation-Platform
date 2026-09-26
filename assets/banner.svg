@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="50%" stop-color="#161b22" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Accent Gradients -->
+    <linearGradient id="primaryGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <style>
+    .bg { fill: url(#bgGradient); }
+    .grid { fill: url(#grid); }
+    
+    /* Animation Keyframes */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.05); }
+    }
+    
+    @keyframes floatParticle {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes dashWave {
+      0% { stroke-dashoffset: 1000; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    @keyframes pillPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    .glowing-orb-1 {
+      animation: pulseGlow 6s ease-in-out infinite;
+      transform-origin: 200px 100px;
+    }
+
+    .glowing-orb-2 {
+      animation: pulseGlow 8s ease-in-out infinite alternate;
+      transform-origin: 1000px 300px;
+    }
+
+    .floating-card {
+      animation: floatParticle 4s ease-in-out infinite;
+    }
+
+    .floating-card-delayed {
+      animation: floatParticle 5s ease-in-out infinite 2s;
+    }
+
+    .wave-line {
+      stroke-dasharray: 10 15;
+      animation: dashWave 30s linear infinite;
+    }
+
+    /* Typography */
+    .title {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 46px;
+      fill: #ffffff;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      fill: #94a3b8;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-text {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      fill: #ffffff;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="400" class="bg" rx="16" />
+  <rect width="1200" height="400" class="grid" rx="16" />
+
+  <!-- Background Ambient Glowing Orbs (Dynamic Background Layer) -->
+  <circle cx="200" cy="100" r="180" fill="#6366f1" opacity="0.25" filter="blur(60px)" class="glowing-orb-1" />
+  <circle cx="1000" cy="300" r="220" fill="#ec4899" opacity="0.2" filter="blur(70px)" class="glowing-orb-2" />
+  <circle cx="600" cy="200" r="150" fill="#06b6d4" opacity="0.15" filter="blur(50px)" />
+
+  <!-- Decorative Statistical Wave Lines (Dynamic Flow) -->
+  <path d="M 50 320 Q 300 240, 600 310 T 1150 220" fill="none" stroke="url(#cyanGlow)" stroke-width="3" opacity="0.4" class="wave-line" />
+  <path d="M 50 280 Q 350 350, 700 250 T 1150 290" fill="none" stroke="url(#primaryGlow)" stroke-width="3" opacity="0.5" class="wave-line" />
+
+  <!-- Dynamic Animated Floating Metric & AB Test Pills (Kept Background to Text) -->
+  <g class="floating-card" opacity="0.85">
+    <rect x="860" y="70" width="260" height="65" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <circle cx="890" cy="102" r="14" fill="#10b981" fill-opacity="0.2" />
+    <path d="M 884 102 L 888 106 L 896 98" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="915" y="97" font-family="system-ui" font-size="12" fill="#94a3b8" font-weight="600">Variant B (Winner)</text>
+    <text x="915" y="117" font-family="system-ui" font-size="16" fill="#10b981" font-weight="700">+18.4% Conversion</text>
+  </g>
+
+  <g class="floating-card-delayed" opacity="0.85">
+    <rect x="80" y="270" width="240" height="65" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <circle cx="110" cy="302" r="14" fill="#6366f1" fill-opacity="0.2" />
+    <text x="105" y="307" font-family="system-ui" font-size="14" fill="#818cf8" font-weight="800">p</text>
+    <text x="135" y="297" font-family="system-ui" font-size="12" fill="#94a3b8" font-weight="600">Statistical Significance</text>
+    <text x="135" y="317" font-family="system-ui" font-size="15" fill="#f8fafc" font-weight="700">p &lt; 0.001 (CUPED)</text>
+  </g>
+
+  <!-- Foreground Title and Content Header (Always Clear & Readable) -->
+  <g transform="translate(80, 130)">
+    <!-- Top Pill Badge -->
+    <g>
+      <rect x="0" y="0" width="270" height="32" rx="16" fill="url(#primaryGlow)" opacity="0.95" />
+      <text x="135" y="21" class="badge-text" text-anchor="middle">🧪 DECISION SCIENCE &amp; TESTING</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="85" class="title">Awesome Experimentation Platform</text>
+
+    <!-- Subtitle -->
+    <text x="0" y="125" class="subtitle">Curated Ecosystem for A/B Testing, Feature Flags &amp; Warehouse-Native Stats</text>
+  </g>
+
+  <!-- Bottom Accent Bar -->
+  <rect x="80" y="348" width="1040" height="4" rx="2" fill="url(#primaryGlow)" />
+</svg>
